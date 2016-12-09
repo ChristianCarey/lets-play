@@ -1,2 +1,13 @@
 <h1>Upcoming Events Near You</h1>
-<%= render @events %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>Host</th>
+      <th>Min Players</th>
+      <th>Max Players</th>
+      <th>Players Attending</th>
+      <th></th>
+    </tr>
+    <%= render @events %>
+</table>

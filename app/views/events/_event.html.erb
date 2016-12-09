@@ -1,1 +1,24 @@
-<%= event.game.name %><br>
+<tr>
+  <td>
+    <%= event.game.name %>
+  </td>
+  <td>
+    <%= event.host.name %>
+  </td>
+  <td>
+    <%= event.min_players %>
+  </td>
+  <td>
+    <%= event.max_players %>
+  </td>
+  <td>
+    <%= event.players.count %>
+  </td>
+  <td>
+    <% if event.full? %>
+      <span class="label label-danger">Full</span>
+    <% else %>
+      <span class="label label-success">Join</span>
+    <% end %>
+  </td>
+</tr>

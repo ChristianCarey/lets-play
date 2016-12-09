@@ -7,5 +7,9 @@ class Event < ApplicationRecord
   def full?
     players.count >= max_players
   end
+
+  def players
+    attendees + [host]
+  end
 end
 

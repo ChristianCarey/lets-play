@@ -18,4 +18,8 @@ class User < ApplicationRecord
   def attending?(event)
     event.attendees.include?(user)
   end
+
+  def name
+    "#{first_name}  #{last_name}"
+  end
 end
