@@ -1,0 +1,18 @@
+<%= form_for [current_user, @event] do |f| %>
+  <!-- TODO: split datetime into two virtual attributes for forms   -->
+  <div class="form-group">
+    <%= f.label :datetime, "What time will you be playing?"%> 
+    <%= f.datetime_select :datetime %>
+  </div>
+  <div class="form-group">
+    <%= f.label :min_players, "How many players do you need?" %>
+    <%= f.number_field :min_players %>
+  </div>
+  <div class="form-group">
+    <%= f.label :max_players, "What is the maximum number of players who can come?" %>
+    <%= f.number_field :max_players %>
+  </div>
+  <%= f.label :game_id, "Which game will you be playing?" %>
+  <%= f.collection_select :game_id, current_user.games.all, :id, :name %>
+  <%= f.submit %>
+<% end %>
