@@ -28,12 +28,20 @@ User.destroy_all
 puts "Destroying games..."
 Game.destroy_all
 
+puts "Creating Christian..."
+User.create(first_name: 'Christian',
+            last_name:  'Carey',
+            email:      'christian@example.com',
+            password:   'password',
+            password_confirmation: 'password')
 puts "Creating users..."
 50.times do 
   first_name = Faker::Name.first_name
   User.create(first_name: first_name,
               last_name:  Faker::Name.last_name,
-              email:      Faker::Internet.email(first_name))
+              email:      Faker::Internet.email(first_name),
+              password:   'password',
+              password_confirmation: 'password')
 end
 
 puts "Creating games..."
@@ -72,9 +80,7 @@ puts "Making people go to events..."
 Event.all.each do |event|
   rand(0..event.max_players).times do 
     user = User.all.sample
-    if event.attendees.include?(user) || event.host == user
-      puts "#{user.first_name} is already attending"
-    else
+    unless event.attendees.include?(user) || event.host == user
       event.attendees << user
     end
   end
