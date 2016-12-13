@@ -3,6 +3,7 @@ FactoryGirl.define do
     datetime "2016-12-08 22:28:27"
     min_players 1
     max_players 1
-    game nil
+    game 
+    host
   end
 end

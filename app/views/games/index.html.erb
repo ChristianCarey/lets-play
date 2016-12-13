@@ -1,0 +1,6 @@
+<% present_collection @games do |games_presenter| %>
+  <%= "#{@user.name}'s games"%>
+  <ul>
+    <%= games_presenter.in_rows_of(3) %>
+  </ul>
+<% end %>

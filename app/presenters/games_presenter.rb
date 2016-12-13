@@ -1,0 +1,3 @@
+class GamesPresenter < CollectionPresenter
+  
+end

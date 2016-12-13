@@ -7,3 +7,7 @@
 .alert-alert {
   @extend .alert-danger;
 }
+
+ul {
+  list-style: none;
+}

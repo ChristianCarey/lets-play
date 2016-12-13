@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :ownerships, dependent: :destroy
+  # TODO don't allow duplicate games
   has_many :games, through: :ownerships
   has_many :attendings, dependent: :destroy
   has_many :attended_events, through: :attendings, source: :event
@@ -16,7 +17,7 @@ class User < ApplicationRecord
   end
 
   def attending?(event)
-    event.attendees.include?(user)
+    attended_events.include?(event)
   end
 
   def name

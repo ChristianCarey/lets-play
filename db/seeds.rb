@@ -1,17 +1,17 @@
 THUMB_URLS = [
   "http://cf.geekdo-images.com/images/pic96574_t.jpg",
   "http://cf.geekdo-images.com/images/pic2419375_t.jpg",
-  "cf.geekdo-images.com/images/pic1521633_t.jpg",
-  "cf.geekdo-images.com/images/pic394356_t.jpg",
-  "cf.geekdo-images.com/images/pic175966_t.jpg"
+  "http://cf.geekdo-images.com/images/pic1521633_t.jpg",
+  "http://cf.geekdo-images.com/images/pic394356_t.jpg",
+  "http://cf.geekdo-images.com/images/pic175966_t.jpg"
 ]
 
 IMAGE_URLS = [
   "http://cf.geekdo-images.com/images/pic96574.jpg",
   "http://cf.geekdo-images.com/images/pic2419375.jpg",
-  "cf.geekdo-images.com/images/pic1521633.jpg",
-  "cf.geekdo-images.com/images/pic394356.jpg",
-  "cf.geekdo-images.com/images/pic175966.jpg"
+  "http://cf.geekdo-images.com/images/pic1521633.jpg",
+  "http://cf.geekdo-images.com/images/pic394356.jpg",
+  "http://cf.geekdo-images.com/images/pic175966.jpg"
 ]
 
 CATEGORIES = [
@@ -56,6 +56,7 @@ puts "Creating games..."
 end
 
 puts "Giving games to users..."
+# TODO don't allow duplicate games
 Game.all.each do |game|
   rand(1..20).times do
     User.all.sample.games << game
