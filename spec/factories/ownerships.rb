@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :ownership do
-    user nil
-    game nil
+    user
+    game
   end
 end

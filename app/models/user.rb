@@ -32,6 +32,11 @@ class User < ApplicationRecord
     attended_events.include?(event)
   end
 
+  # TODO test this
+  def owns?(game)
+    games.include?(game)
+  end
+
   def name
     "#{first_name}  #{last_name}"
   end

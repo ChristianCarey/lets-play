@@ -56,10 +56,12 @@ puts "Creating games..."
 end
 
 puts "Giving games to users..."
-# TODO don't allow duplicate games
 Game.all.each do |game|
   rand(1..20).times do
-    User.all.sample.games << game
+    user = User.all.sample
+    unless user.owns?(game)
+      user.games << game
+    end
   end
 end
 
