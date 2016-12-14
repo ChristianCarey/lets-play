@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
   it { should have_many(:hosted_events).dependent(:destroy) }
 
   # ----------------------------------------
-  # Associations
+  # Validations
   # ----------------------------------------
 
   it "is valid with default attributes" do 
