@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   belongs_to :game
   belongs_to :host, class_name: 'User'
   has_many   :attendings, dependent: :destroy
+  #TODO rename attendees to guests
   has_many   :attendees, through: :attendings, source: :user
 
   validates :min_players, numericality: { greater_than: 0 }

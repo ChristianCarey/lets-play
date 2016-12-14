@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   
-  let(:event) { build(:event) }
+  
+  let(:event)       { build(:event) }
+  let(:user)        { event.host }
+  let(:second_user) { build(:user) }
+  let(:third_user)  { build(:user) }
   
   # ----------------------------------------
   # Associations
@@ -30,14 +34,26 @@ RSpec.describe Event, type: :model do
   describe "#full" do 
 
     it "returns true if the even is at full capacity" do 
-      2.times do 
-        event.attendees << build(:user)
-      end
+      event.attendees << second_user
+      event.attendees << third_user
       expect(event).to be_full
     end
 
     it "returns false is there is room for another player" do 
+      event.attendees << second_user
       expect(event).not_to be_full
+    end
+  end
+
+  describe "#players" do 
+
+    it "returns an array of the events host and attendees" do 
+      event.attendees << second_user
+      event.attendees << third_user
+      expect(event.players).to include(user)
+      expect(event.players).to include(second_user)
+      expect(event.players).to include(third_user)
+      expect(event.players.size).to eq(3)
     end
   end
 end
