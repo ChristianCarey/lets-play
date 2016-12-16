@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Attending, type: :model do
-
   let(:attending) { build(:attending) }
   let(:second_attending) do 
     build(:attending, user: attending.user, 
