@@ -1,7 +1,7 @@
 <% present_collection @games do |games_presenter| %>
-  <%= "#{@user.name}'s games"%>
+  <h1><%= "#{@user.name}'s games"%></h1>
   <ul>
-    <%= games_presenter.in_rows_of(6) %>
+    <%= games_presenter.in_rows_of(3) %>
   </ul>
 <% end %>
 
