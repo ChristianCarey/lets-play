@@ -1,13 +1,8 @@
+<div class="col-md-8 col-md-offset-2">
 <h1>Upcoming Events Near You</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Game</th>
-      <th>Host</th>
-      <th>Min Players</th>
-      <th>Max Players</th>
-      <th>Players Attending</th>
-      <th></th>
-    </tr>
-    <%= render @events %>
-</table>
+<% present_collection @events do |events_presenter| %>
+  <ul>
+    <%= events_presenter.in_rows_of(1) %>
+  </ul>
+<% end %>
+</div>

@@ -10,8 +10,10 @@ class EventsController < ApplicationController
   def create
     @event = current_user.hosted_events.build(event_params)
     if @event.save
-      redirect_to @event, notice: 'Event created.'
+      flash[:success] = "Event created."
+      redirect_to @event
     else
+      flash[:Danger] = "Could not create event."
       render :new
     end
   end

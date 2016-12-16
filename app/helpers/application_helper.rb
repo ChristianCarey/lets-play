@@ -7,7 +7,8 @@ module ApplicationHelper
     presenter
   end
 
-  def present_collection(collection, klass = nil)
+  # TODO make class nil if there are different colletion presenters
+  def present_collection(collection, klass = CollectionPresenter)
     collection_name = collection.class.to_s.split('::')[0].pluralize
     klass ||= "#{collection_name}Presenter".constantize
     presenter = klass.new(collection, self)
