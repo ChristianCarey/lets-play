@@ -2,7 +2,6 @@ class CollectionPresenter < BasePresenter
 
   def in_rows_of(num_columns, options = {})
     # TODO handle incorrect input
-    # TODO console says rendering but no output in the window
     breakpoint  = options[:breakpoint] || "md"
     partial     = options[:partial]
     column_size = 12 / num_columns
