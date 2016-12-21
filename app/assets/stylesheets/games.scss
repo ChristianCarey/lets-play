@@ -8,4 +8,10 @@
   padding: 14px;
   margin: 14px 0;
   background: #eee;
+  position: relative;
+  .request-button {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+  }
 }

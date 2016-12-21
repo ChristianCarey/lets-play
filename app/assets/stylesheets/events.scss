@@ -1,3 +1,21 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import '_mixins.scss';
+
+.event-partial {
+  @include light-border; 
+
+
+  .media {
+    margin-top: 0;
+  }
+}
+
+
+.events-list {
+
+  h1 {
+    text-align: center;
+  }
+}

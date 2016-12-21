@@ -1,0 +1,24 @@
+<div class="col-md-10 col-md-offset-1">
+  <div class="jumbotron">
+    <h1><%= @user.name %></h1>
+    <p><%= @user.bio %></p>
+  </div>
+  <div class="row">
+    <div class="col-md-6 user-column">
+      <h3>Owns <%= pluralize(@user.games.size, "game") %></h3>
+      <hr>
+      <ul>
+        <%= will_paginate @games %>
+        <%= render @games%>
+        <%= will_paginate @games %>
+      </ul>
+    </div>
+    <div class="col-md-6 user-column">
+      <h3>Hosting <%= pluralize(@user.hosted_events.size, "upcoming event") %></h3>
+      <hr> 
+      <ul>
+        <%= render @user.hosted_events %>
+      </ul>
+    </div>
+  </div>
+</div>

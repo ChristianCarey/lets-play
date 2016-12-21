@@ -1,6 +1,6 @@
 <% present event do |event_presenter| %>
-  <li class="panel panel-default">
-    <div class="panel-heading">
+  <li class="panel panel-default event-partial">
+    <div class="panel-heading event-heading">
       <%= event_presenter.datetime %>
     </div>
     <div class="panel-body media">
@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="panel-footer">
-      Hosted by <%= event.host.name %>
+      Hosted by <%= link_to event.host.name, event.host %>
     </div>
   </li>
 <% end %>

@@ -1,5 +1,6 @@
-<div class="col-md-8 col-md-offset-2">
+<div class="col-md-8 col-md-offset-2 events-list">
 <h1>Upcoming Events Near You</h1>
+<hr>
 <% present_collection @events do |events_presenter| %>
   <ul>
     <%= events_presenter.in_rows_of(1) %>
