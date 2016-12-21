@@ -1,24 +1,23 @@
-<tr>
-  <td>
-    <%= event.game.name %>
-  </td>
-  <td>
-    <%= event.host.name %>
-  </td>
-  <td>
-    <%= event.min_players %>
-  </td>
-  <td>
-    <%= event.max_players %>
-  </td>
-  <td>
-    <%= event.players.count %>
-  </td>
-  <td>
-    <% if event.full? %>
-      <span class="label label-danger">Full</span>
-    <% else %>
-      <span class="label label-success">Join</span>
-    <% end %>
-  </td>
-</tr>
+<% present event do |event_presenter| %>
+  <li class="panel panel-default event-partial">
+    <div class="panel-heading event-heading">
+      <%= event_presenter.datetime %>
+    </div>
+    <div class="panel-body media">
+      <div class="media-left">
+        <%= image_tag event.game.thumb_url %>        
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= event.game.name %>
+        </h4>
+        <%= pluralize(event_presenter.remaining_seats, "seat") %> left.
+        <%= event_presenter.join_or_full %>
+      </div>
+    </div>
+    <div class="panel-footer">
+      Hosted by <%= link_to event.host.name, event.host %>
+    </div>
+  </li>
+<% end %>
+

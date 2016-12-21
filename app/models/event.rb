@@ -9,6 +9,8 @@ class Event < ApplicationRecord
   validate :datetime_cannot_be_in_the_past
   #TODO maximum for max_players?
 
+  default_scope { order('datetime ASC') }
+
   def full?
     players.count >= max_players
   end

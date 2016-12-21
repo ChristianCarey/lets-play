@@ -13,7 +13,7 @@ gem 'devise', '~> 4.2'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'faker', '~> 1.6', '>= 1.6.6'
 gem 'geokit-rails', '~> 2.2'
-
+gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -1,11 +1,12 @@
-<li class="media game-partial">
-  <div class="media-left">
-    <a href="#">
+<% present game do |game_presenter| %>
+  <li class="media game-partial">
+    <div class="media-left">
       <%= image_tag game.thumb_url, class: 'media-object' %>
-    </a>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading"><%= game.name %></h4>
-      <%= truncate(game.description, length: 80) %>
-  </div>
-</li>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading"><%= game.name %></h4>
+        <%= truncate(game.description, length: 80) %>
+        <%= game_presenter.request_button %>
+    </div>
+  </li>
+<% end %>
