@@ -1,9 +1,9 @@
 class Event < ApplicationRecord
   belongs_to :game
   belongs_to :host, class_name: 'User'
-  has_many   :attendings, dependent: :destroy
+  has_many   :reservations, dependent: :destroy
   #TODO rename attendees to guests
-  has_many   :attendees, through: :attendings, source: :user
+  has_many   :guests, through: :reservations, source: :user
 
   validates :min_players, numericality: { greater_than: 0 }
   validate :datetime_cannot_be_in_the_past
@@ -16,7 +16,7 @@ class Event < ApplicationRecord
   end
 
   def players
-    attendees + [host]
+    guests + [host]
   end
 
   private

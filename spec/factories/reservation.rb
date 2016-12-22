@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :attending do
+  factory :reservation do
     user 
     event 
   end

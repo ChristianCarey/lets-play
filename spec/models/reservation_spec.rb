@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Attending, type: :model do
-  let(:attending) { build(:attending) }
-  let(:second_attending) do 
-    build(:attending, user: attending.user, 
-                      event: attending.event)
+RSpec.describe Reservation, type: :model do
+  let(:reservation) { build(:reservation) }
+  let(:second_reservation) do 
+    build(:reservation, user: reservation.user, 
+                      event: reservation.event)
   end
   
   # ----------------------------------------
@@ -19,11 +19,11 @@ RSpec.describe Attending, type: :model do
   # ----------------------------------------  
 
   it "is valid with default values" do 
-    expect(attending).to be_valid
+    expect(reservation).to be_valid
   end
 
   it "validates uniqueness of user with event" do 
-    attending.save
-    expect(second_attending).not_to be_valid
+    reservation.save
+    expect(second_reservation).not_to be_valid
   end
 end

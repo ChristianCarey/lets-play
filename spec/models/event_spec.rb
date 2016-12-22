@@ -12,8 +12,8 @@ RSpec.describe Event, type: :model do
 
   it { should belong_to(:game) }
   it { should belong_to(:host) }
-  it { should have_many(:attendings).dependent(:destroy) }
-  it { should have_many(:attendees) }
+  it { should have_many(:reservations).dependent(:destroy) }
+  it { should have_many(:guests) }
 
   # ----------------------------------------
   # Validations
@@ -31,21 +31,21 @@ RSpec.describe Event, type: :model do
 
   describe "#full" do 
     it "returns true if the even is at full capacity" do 
-      event.attendees << second_user
-      event.attendees << third_user
+      event.guests << second_user
+      event.guests << third_user
       expect(event).to be_full
     end
 
     it "returns false is there is room for another player" do 
-      event.attendees << second_user
+      event.guests << second_user
       expect(event).not_to be_full
     end
   end
 
   describe "#players" do 
-    it "returns an array of the events host and attendees" do 
-      event.attendees << second_user
-      event.attendees << third_user
+    it "returns an array of the events host and guests" do 
+      event.guests << second_user
+      event.guests << third_user
       expect(event.players).to include(user)
       expect(event.players).to include(second_user)
       expect(event.players).to include(third_user)

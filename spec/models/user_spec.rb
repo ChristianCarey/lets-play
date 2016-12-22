@@ -10,8 +10,8 @@ RSpec.describe User, type: :model do
 
   it { should have_many(:ownerships).dependent(:destroy) }
   it { should have_many(:games) }
-  it { should have_many(:attendings).dependent(:destroy) }
-  it { should have_many(:attended_events) }
+  it { should have_many(:reservations).dependent(:destroy) }
+  it { should have_many(:reserved_events) }
   it { should have_many(:hosted_events).dependent(:destroy) }
 
   # ----------------------------------------
@@ -36,9 +36,9 @@ RSpec.describe User, type: :model do
   describe "#attend" do 
     let(:event) { build_stubbed(:event) }
     
-    it "adds an event to attended_events" do 
+    it "adds an event to reserved_events" do 
       user.attend(event)
-      expect{ user.attend(event) }.to change{ user.attended_events.length }.by(1)
+      expect{ user.attend(event) }.to change{ user.reserved_events.length }.by(1)
     end
   end
 end
